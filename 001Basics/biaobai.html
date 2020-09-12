@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一首诗歌</title>
+    <style type="text/css">
+        body{
+            background-image: url(./images/1.png);
+            background-size: 100% 100%;
+            height: 100%;
+        }
+        html{
+            height: 100%;
+        }
+        @keyframes myfirst {
+            0% {opacity:0}
+            25% {opacity:100}
+            50% {opacity:0}
+            100% {opacity:0}
+        }
+        @keyframes mysecond {
+            0% {opacity:0}
+            25% {opacity:0}
+            75% {opacity:100}
+            100% {opacity:0}
+        }
+        p{
+            font-size: 100px;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+        #yu{
+            animation: myfirst 5s infinite;
+        }
+        #chui{
+            animation: mysecond 5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <p id="yu">有一只胖头鱼</p>
+    <p id="chui">他喜欢胖头锤</p>
+</body>
+</html>
