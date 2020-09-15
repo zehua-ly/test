@@ -37,21 +37,9 @@
             animation: mysecond 5s infinite;
         }
     </style>
-    <script>
-        function audioAutoPlay(id) {
-            var audio = document.getElementById(id);
-            audio.play();
-            document.addEventListener("WeixinJSBridgeReady", function () {
-                audio.play();
-            },false);
-            document.addEventListener("YixinJSBridgeReady", function () {
-                audio.play();
-            },false);
-        }
-    </script>
 </head>
-<body onload="audioAutoPlay('10%20SEC%20INTRO%20%20%20%231');">
-    <audio src="./audio/10%20SEC%20INTRO%20%20%20%231.mp3" preload="auto" autoplay="autoplay" controls="controls"
+<body >
+    <audio src="./audio/10%20SEC%20INTRO%20%20%20%231.mp3" autoplay="autoplay" controls="controls"
            loop="loop">
     </audio>
     <p id="yu">有一只胖头鱼</p>
