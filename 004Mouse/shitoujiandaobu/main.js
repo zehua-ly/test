@@ -1,4 +1,4 @@
-var r, score = 0, grade = 7, lastHumanChoice;
+var r, score = 0, grade = 1, lastHumanChoice;
 var lastWinner = "noone", lastComputerChoice = "shitou";
 
 function shitou() {
