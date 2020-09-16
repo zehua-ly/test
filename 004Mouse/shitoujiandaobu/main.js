@@ -1,4 +1,4 @@
-var r, score = 0, grade = 4, lastHumanChoice;
+var r, score = 0, grade = 7, lastHumanChoice;
 var lastWinner = "noone", lastComputerChoice = "shitou";
 
 function shitou() {
@@ -32,56 +32,60 @@ function judge(myChoice) {
     } else if (grade == 4) {
         computerResult = loseChange();
         lastComputerChoice = computerResult;
-    } else {
+    }else if (grade == 5) {
+        computerResult = loveBu();
+    }else if (grade == 6) {
+        computerResult = randomPlayer();
+    } else if (grade == 7) {
         computerResult = computerChoice();
     }
-    if (myChoice == "shitou") {
-        if (computerResult == "shitou") {
+    if (myChoice === "shitou") {
+        if (computerResult === "shitou") {
             lastWinner = "noone";
         }
-        if (computerResult == "jiandao") {
+        if (computerResult === "jiandao") {
             lastWinner = "human";
             score += 1;
         }
-        if (computerResult == "bu") {
+        if (computerResult === "bu") {
             lastWinner = "com";
             score -= 1;
         }
 
-    } else if (myChoice == "jiandao") {
-        if (computerResult == "shitou") {
+    } else if (myChoice === "jiandao") {
+        if (computerResult === "shitou") {
             lastWinner = "com";
             score -= 1
         }
-        if (computerResult == "jiandao") {
+        if (computerResult === "jiandao") {
             lastWinner = "noone";
 
         }
-        if (computerResult == "bu") {
+        if (computerResult === "bu") {
             lastWinner = "human";
             score += 1
         }
 
     } else {
-        if (computerResult == "shitou") {
+        if (computerResult === "shitou") {
             lastWinner = "human";
             score += 1
         }
-        if (computerResult == "jiandao") {
+        if (computerResult === "jiandao") {
             lastWinner = "com";
             score -= 1
         }
-        if (computerResult == "bu") {
+        if (computerResult === "bu") {
             lastWinner = "noone";
 
         }
     }
-    if (score > 5) {
+    if (score >= 5) {
         score = 0;
         grade += 1;
     }
     document.getElementById("result").innerHTML = "第" + grade + "关，积分：" + score;
-    if (grade >= 10) {
+    if (grade > 7) {
         document.getElementById("result").innerHTML = "NB,通关了！";
     }
 }
@@ -90,6 +94,7 @@ function go() {
 }
 
 function computerChoice() {
+    document.getElementById('computerName').innerHTML = "电脑";
     if (r < 1) {
         document.getElementById("computerChoice").innerHTML = "<img src='images/shitou.jpg' alt='石头'>";
         return "shitou";
@@ -100,6 +105,40 @@ function computerChoice() {
         document.getElementById("computerChoice").innerHTML = "<img src='images/bu.jpg' alt='布'>";
         return "bu";
     }
+}
+
+function loveBu() {
+    var temp;
+    if (r < 0.8) {
+        document.getElementById("computerChoice").innerHTML = "<img src='images/shitou.jpg' alt='石头'>";
+        temp = "shitou";
+    } else if (r < 1.6) {
+        document.getElementById("computerChoice").innerHTML = "<img src='images/jiandao.jpg' alt='剪刀'>";
+        temp = "jiandao";
+    } else {
+        document.getElementById("computerChoice").innerHTML = "<img src='images/bu.jpg' alt='布'>";
+        temp = "bu";
+    }
+    document.getElementById("computerName").innerHTML = "爱布先生";
+    document.getElementById("computerChoice").innerHTML = "<img src='images/" + temp + ".jpg'>";
+    return temp;
+}
+
+function randomPlayer() {
+    var temp;
+    if (r < 1) {
+        document.getElementById("computerChoice").innerHTML = "<img src='images/shitou.jpg' alt='石头'>";
+        temp = "shitou";
+    } else if (r < 2) {
+        document.getElementById("computerChoice").innerHTML = "<img src='images/jiandao.jpg' alt='剪刀'>";
+        temp = "jiandao";
+    } else {
+        document.getElementById("computerChoice").innerHTML = "<img src='images/bu.jpg' alt='布'>";
+        temp = "bu";
+    }
+    document.getElementById("computerName").innerHTML = "随心所欲";
+    document.getElementById("computerChoice").innerHTML = "<img src='images/" + temp + ".jpg'>";
+    return temp;
 }
 
 function onlyShiTou() {
@@ -116,7 +155,7 @@ function learnFromHuman() {
 
 function winnerAgain() {
     document.getElementById("computerName").innerHTML = "赢了还出";
-    if (lastWinner == "com") {
+    if (lastWinner === "com") {
         document.getElementById("computerChoice").innerHTML = "<img src='images/" + lastComputerChoice + ".jpg'>";
         return lastComputerChoice;
     }
@@ -127,7 +166,7 @@ function winnerAgain() {
 
 function loseChange() {
     document.getElementById("computerName").innerHTML = "输了就换";
-    if (lastWinner == "human") {
+    if (lastWinner === "human") {
         var temp = getResultExclude(lastComputerChoice);
         document.getElementById("computerChoice").innerHTML = "<img src='images/" + temp + ".jpg'>";
         return temp;
@@ -139,7 +178,7 @@ function loseChange() {
 
 function getResultExclude(exclusion) {
     var temp = computerChoice();
-    if (temp == exclusion) {
+    if (temp === exclusion) {
         return getResultExclude(exclusion);
     } else {
         return temp;
