@@ -36,7 +36,7 @@ function judge(myChoice) {
         computerResult = loveBu();
     }else if (grade == 6) {
         computerResult = randomPlayer();
-    } else if (grade == 7) {
+    } else {
         computerResult = computerChoice();
     }
     if (myChoice === "shitou") {
