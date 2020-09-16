@@ -1,4 +1,4 @@
-var r, score = 0, grade = 1, lastHumanChoice;
+var r, score = 0, grade = 4, lastHumanChoice;
 var lastWinner = "noone", lastComputerChoice = "shitou";
 
 function shitou() {
@@ -85,7 +85,7 @@ function judge(myChoice) {
         grade += 1;
     }
     document.getElementById("result").innerHTML = "第" + grade + "关，积分：" + score;
-    if (grade > 7) {
+    if (grade >= 7) {
         document.getElementById("result").innerHTML = "NB,通关了！";
     }
 }
@@ -94,7 +94,6 @@ function go() {
 }
 
 function computerChoice() {
-    document.getElementById('computerName').innerHTML = "电脑";
     if (r < 1) {
         document.getElementById("computerChoice").innerHTML = "<img src='images/shitou.jpg' alt='石头'>";
         return "shitou";
