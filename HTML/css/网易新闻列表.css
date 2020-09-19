@@ -1,0 +1,105 @@
+body {
+    background-color: #bbffaa;
+}
+
+a {
+    /*去除下划线*/
+    text-decoration: none;
+}
+
+/*设置hr，顶上横杠样式*/
+hr {
+    display: block;
+    border: 1px inset;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    color: gray;
+    -moz-float-edge: margin-box;
+    box-sizing: content-box;
+}
+
+/*设置容器的样式*/
+.news-wrapper {
+    width: 288px;
+    height: 420px;
+    /*    设置居中*/
+    margin: 50px auto;
+    background-color: white;
+    /*    设置上边框*/
+    padding: 10px;
+}
+
+/*设置news-title*/
+.news-title {
+    /*为了边框和文字宽度一致，需要将h2转化为行内块元素*/
+    display: inline-block;
+    /*设置上边框*/
+    border-top: 2px red solid;
+    /*设置高度*/
+    height: 30px;
+    /*通过margin-top将h2上移，盖住上边框*/
+    margin-top: -2px;
+    /*将超链接往下移，对应的将height由40改为30*/
+    padding-top: 10px;
+}
+
+/*设置title中超链接的样式*/
+.news-title a {
+    color: black;
+    /*设置文字的加粗效果*/
+    font-weight: bold;
+}
+
+
+.news-img {
+    height: 190px;
+}
+
+/*设置图片的文字效果*/
+.news-img .img-title {
+    /*    向上移动文字*/
+    margin-top: -35px;
+    /*设置字体颜色*/
+    color: #ffffff;
+    /*设置加粗*/
+    font-weight: bold;
+    /*      设置padding*/
+    padding-left: 10px;
+}
+
+/*  设置新闻列表*/
+.news-list {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+/*  设置li*/
+.news-list li {
+    margin-bottom: 17px;
+}
+
+/*  设置li中的文字*/
+.news-list li a {
+    /*     设置字体大小 */
+    font-size: 14px;
+    /*      设置字体颜色*/
+    color: #666;
+}
+
+/*  设置超链接鼠标悬停时颜色*/
+.news-list li a:hover {
+    color: red;
+}
+
+/*  设置li自带的圆点*/
+ul, menu, dir {
+    list-style-type: disc;
+    color: #666;
+}
+
+
+
+
+
